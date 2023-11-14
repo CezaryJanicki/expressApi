@@ -17,12 +17,27 @@ router.route('/seats').post((req, res) => {
         seat: req.body.seat,
         client: req.body.client,
         email: req.body.email,
-    }
-    db.seats.push(seat);
-    return res.json({
-        message: 'ok'
+    };
+
+    if (seat.day && seat.seat && seat.client && seat.email &&
+        !db.seats.some(
+          (element) =>
+            element.seat == seat.seat && element.day == seat.day
+        )) {
+        db.seats.push(seat);
+        res.json({ message: 'OK' });
+      } else if (
+        seat.day && seat.seat && seat.client && seat.email &&
+        db.seats.some(
+          (element) =>
+            element.seat == seat.seat && element.day == seat.day
+        )
+      ) {
+        res.status(409).json({ message: 'The slot is already taken...' });
+      } else {
+        res.status(404).json({ message: '404 not found...' });
+      };
     });
-});
 
 router.route('/seats/:id').put((req, res) => {
     db.seats.forEach(seat => {

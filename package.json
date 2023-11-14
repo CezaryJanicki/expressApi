@@ -9,7 +9,8 @@
     "main": "index.js",
     "license": "MIT",
     "scripts": {
-        "start": "nodemon server.js"
+        "start": "nodemon server.js",
+        "build": "cd client && yarn install && yarn build"
     },
     "devDependencies": {
         "jest": "^29.7.0"
