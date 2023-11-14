@@ -11,7 +11,6 @@ router.route('/testimonials/:id').get((req, res) => {
 });
 
 router.route('/testimonials').post((req, res) => {
-
     const person = {
         id: (db.testimonials.length + 1),
         author: req.body.author,
@@ -30,7 +29,6 @@ router.route('/testimonials/:id').put((req, res) => {
             person.text = req.body.text;
         }
     });
-
     return res.json({
         message: 'ok'
     });
@@ -44,7 +42,6 @@ router.route('/testimonials/:id').delete((req, res) => {
             db.test.splice(index, 1);
         }
     });
-
     return res.json({
         message: 'ok'
     });

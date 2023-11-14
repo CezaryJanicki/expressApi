@@ -38,9 +38,6 @@ router.route('/seats/:id').put((req, res) => {
     });
 });
 
-
-
-
 router.route('/seats/:id').delete((req, res) => {
     db.seats.forEach(seat => {
         if(seat.id == req.params.id) {

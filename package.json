@@ -8,6 +8,9 @@
     "main": "index.js",
     "license": "MIT",
     "scripts": {
-        "start": "npx nodemon server.js"
-      }
+        "start": "nodemon server.js"
+    },
+    "devDependencies": {
+        "jest": "^29.7.0"
+    }
 }

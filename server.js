@@ -10,9 +10,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 
-app.use('/', testimonialsRoutes);
-app.use('/', concertRoutes);
-app.use('/', seatsRoutes);
+app.use('/api', testimonialsRoutes);
+app.use('/api', concertRoutes);
+app.use('/api', seatsRoutes);
 
 app.use((req, res) => {
     return res.json({
