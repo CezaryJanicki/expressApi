@@ -17,16 +17,17 @@ app.use('/api', testimonialsRoutes);
 app.use('/api', concertRoutes);
 app.use('/api', seatsRoutes);
 
-app.use((req, res) => {
-    return res.json({
-        message: 'Not found...'
-    });
-});
-
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '/client/build/index.html'));
+});
+
+app.use((req, res) => {
+    return res.json({
+        message: 'Not found... in Server'
+    });
 });
 
 app.listen(process.env.PORT || 8000, () => {
     console.log('Server is running on port: 8000');
 });
+
